@@ -19,10 +19,6 @@ function setupSkills(patturn_id,skill_id)
     end
 end
 
--- AlchemyFacility:call("reserveAlchemy")
--- AlchemyFacility:call("reserveAlchemy")
--- AlchemyFacility:call("reserveAlchemy")
--- AlchemyFacility:call("reserveAlchemy")
 
 
 function dumpReserveInfo(reserveInfo) 
@@ -87,22 +83,10 @@ AlchemyFacility:call("cleanupReserveInfo")
 
 -- run
 outputs = dumpCycle(10000)
--- for i = 0,9 do 
---     setupSkills(patturn_id,skill_id)
---     AlchemyFacility:call("reserveAlchemy")
---     log.info("HERE")
---     outputs[j*10+i+1] = dumpReserveInfo(ReserveInfoList[i])
---     AlchemyFacilityFunction:call("finishedLastMakaPot")
--- end
--- for i = 0,9 do 
---     setupSkills(patturn_id,skill_id)
---     AlchemyFacility:call("reserveAlchemy")
---     -- outputs[j*10+i+1] = dumpReserveInfo(ReserveInfoList[i])
---     AlchemyFacilityFunction:call("finishedLastMakaPot")
--- end
+
 -- reset cost
 for i=0,9 do
     local urnParam = Patturns[i]:get_field("_Param")
     urnParam:set_field("_CostVillagePoint",cache_cost[i])
 end
-json.dump_file("output_bowgun.json", outputs)
+json.dump_file("output_test.json", outputs)
