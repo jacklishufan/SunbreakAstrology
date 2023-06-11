@@ -29,7 +29,7 @@ for craft_res in json_data:
             skillName = skill_mapping.get(str(skillId),str(skillId))
         lot_name = table[str(lotId)]['name']
         key= lot_name+':'+skillName if skillName else lot_name 
-        payload[key] = payload.get(key, table[str(lotId)]['vals'][val])
+        payload[key] = payload.get(key,0)+ table[str(lotId)]['vals'][val]
     all_items.append(payload)
 print('\n'.join([str(y) for y in all_items]))
 with open(args.path+'.csv','w',encoding="utf-8") as f:
